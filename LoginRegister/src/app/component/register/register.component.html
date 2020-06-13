@@ -1,0 +1,117 @@
+<div class="bg-image-container">
+  <br>
+  <div fxLayoutAlign="center center" fxFlexFill>
+    <!--Angular Material Card for Registration-->
+    <mat-card fxFlex=25>
+      <mat-card-header>
+        <mat-card-title>
+          Registration Form
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-divider></mat-divider>
+      <mat-divider></mat-divider>
+
+      <mat-card-content>
+        <br>
+        <!--Responsive Reactive Form with Angular Material-->
+        <form [formGroup]="myForm" (ngSubmit)="submitDetails()">
+          <!--Validation on Visual Feedback for First Name-->
+          <!--firstName is retrieved from TS file line number: 17 , as this.myForm.get('FirstName') is returned to firstName()-->
+          <div *ngIf="firstName.invalid && firstName.touched">
+            <small *ngIf="firstName.errors?.required"><br>FirstName is required.</small>
+            <small *ngIf="firstName.errors?.minlength"><br>FirstName must be at least 6 Characters.</small>
+            <small *ngIf="firstName.errors?.pattern"><br>FirstName should contain only Alphabets.</small>
+          </div>
+          <!--Material Form Design for First Name-->
+          <mat-form-field floatLable="always" appearance="fill">
+            <mat-label>FirstName</mat-label>
+            <mat-icon matSuffix>text_rotation_none</mat-icon>
+            <input matInput placeholder="Enter Your FirstName" formControlName="FirstName" />
+          </mat-form-field>
+          <!--End of First Name-->
+
+          <!--Validation on Visual Feedback for First Name-->
+          <!--lastName is retrieved from TS file line number: 21 , as this.myForm.get('LastName') is returned to lastName()-->
+          <div *ngIf="lastName.invalid && lastName.touched">
+            <small *ngIf="lastName.errors?.required"><br>LastName is required.</small>
+            <small *ngIf="lastName.errors?.minlength"><br>LastName must be at least 1 Character.</small>
+            <small *ngIf="lastName.errors?.pattern"><br>LastName should contain only Alphabets.</small>
+          </div>
+          <!--Material Form Design for Last Name-->
+          <mat-form-field floatLable="always" appearance="fill">
+            <mat-label>Enter Your LastName</mat-label>
+            <mat-icon matSuffix>text_rotation_none</mat-icon>
+            <input matInput placeholder="LastName" formControlName="LastName" />
+          </mat-form-field>
+          <!--End of Last Name-->
+
+          <!--Validation on Visual Feedback for Email-->
+          <!--email is retrieved from TS file line number: 25 , as this.myForm.get('Email') is returned to email()-->
+          <span *ngIf="email.invalid && email.touched">
+            <br> Email consists of @ & .
+          </span>
+          <!--Material Form Design for Email-->
+          <mat-form-field floatLable="always" appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <mat-icon matSuffix>email</mat-icon>
+            <input matInput type="email" formControlName="Email" />
+          </mat-form-field>
+          <!--End of Last Name-->
+
+          <!--Validation on Visual Feedback for Password-->
+          <!--password is retrieved from TS file line number: 29 , as this.myForm.get('Password') is returned to password()-->
+          <div *ngIf="password.invalid && password.touched">
+            <small *ngIf="password.errors?.required"><br>Password is required.</small>
+            <small *ngIf="password.errors?.pattern"><br>Password should meet the conditions specified.</small>
+          </div>
+          <!--Material Form Design for Password-->
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" />
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+            <mat-hint>1 UpperCase, 1LowerCase, 1Digit, 1SpecialCharacter.</mat-hint>
+          </mat-form-field>
+          <br><br>
+          <!--End of Password-->
+
+          <!--Validation on Visual Feedback for Confirm Password-->
+          <!--confirmPassword is retrieved from TS file line number: 33 , as this.myForm.get('ConfirmPassword') is returned to confirmPassword()-->
+          <div *ngIf="confirmPassword.invalid && confirmPassword.touched">
+            <br>
+            <small *ngIf="confirmPassword.errors?.required">Password is required.</small>
+            <small *ngIf="confirmPassword.errors?.pattern">Password should meet the conditions specified.</small><br>
+            <small *ngIf="myForm.errors?.misMatch">Both Passwords must match.</small><br>
+            <br>
+          </div>
+          <!--Material Form Design for ConfirmPassword-->
+          <mat-form-field appearance="fill">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput [type]="hide1 ? 'password' : 'text'" formControlName="ConfirmPassword" />
+            <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide1">
+              <mat-icon>{{ hide1 ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+            <mat-hint>1 UpperCase, 1LowerCase, 1Digit, 1SpecialCharacter.</mat-hint>
+          </mat-form-field>
+          <!--End of ConfirmPassword-->
+          <br><br>
+          <mat-divider></mat-divider>
+          <br>
+          <!--Material Form Design for Buttons-->
+          <mat-card-action>
+            <button mat-flat-button color="primary" type="submit">REGISTER</button> &nbsp;&nbsp;&nbsp;&nbsp;
+            <button mat-flat-button color="primary" type="reset">RESET</button>
+          </mat-card-action>
+          <!--End of Buttons-->
+        </form>
+        <!--End of Form-->
+      </mat-card-content>
+    </mat-card>
+    <!--Angular Material Card Ends-->
+  </div>
+  <br>
+</div>

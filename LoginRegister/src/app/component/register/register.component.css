@@ -1,0 +1,14 @@
+mat-card-title {
+  color: orangered;
+}
+
+/*mat-card {
+  background-image: url('https://www.five9.com/media_library/2017/02/form-background.jpg');
+}*/
+small {
+  color: red;
+}
+
+.bg-image-container {
+  background-image: url('https://www.five9.com/media_library/2017/02/form-background.jpg');
+}

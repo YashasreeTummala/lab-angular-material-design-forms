@@ -1,0 +1,16 @@
+.header-section {
+  height: 2.5em;
+  background-color: rgb(255, 156, 27);
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  font-weight: 600;
+  font-size: 2em;
+  padding: 10px;
+}
+
+mat-card {
+  display: flex;
+  justify-content: flex-end;
+  /*background-color: #04446c;*/
+}

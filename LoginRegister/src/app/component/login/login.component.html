@@ -1,0 +1,65 @@
+<div class="bg-image-container">
+  <br>
+  <div fxLayoutAlign="center center" fxFlexFill>
+    <!--Angular Material Card for Registration-->
+    <mat-card fxFlex=25>
+      <mat-card-header>
+        <mat-card-title>
+          Login Form
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-divider></mat-divider>
+      <mat-divider></mat-divider>
+
+      <mat-card-content>
+        <br>
+        <!--Responsive Reactive Form with Angular Material-->
+        <form [formGroup]="myForm" (ngSubmit)="submitDetails()">
+
+          <!--Validation on Visual Feedback for Email-->
+          <!--email is retrieved from TS file line number: 25 , as this.myForm.get('Email') is returned to email()-->
+          <span *ngIf="email.invalid && email.touched">
+            <br> Email consists of @ & .
+          </span>
+          <!--Material Form Design for Email-->
+          <mat-form-field floatLable="always" appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <mat-icon matSuffix>email</mat-icon>
+            <input matInput type="email" formControlName="Email" />
+          </mat-form-field>
+          <!--End of Last Name-->
+
+          <!--Validation on Visual Feedback for Password-->
+          <!--password is retrieved from TS file line number: 29 , as this.myForm.get('Password') is returned to password()-->
+          <div *ngIf="password.invalid && password.touched">
+            <small *ngIf="password.errors?.required"><br>Password is required.</small>
+            <small *ngIf="password.errors?.pattern"><br>Password should meet the conditions specified.</small>
+          </div>
+          <!--Material Form Design for Password-->
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" />
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+            <mat-hint>1 UpperCase, 1LowerCase, 1Digit, 1SpecialCharacter.</mat-hint>
+          </mat-form-field>
+          <br><br>
+          <!--End of Password-->
+          <br>
+          <!--Material Form Design for Buttons-->
+          <mat-card-action>
+            <button mat-flat-button color="primary" type="submit">LOGIN</button> &nbsp;&nbsp;&nbsp;&nbsp;
+            <button mat-flat-button color="primary" type="reset">RESET</button>
+          </mat-card-action>
+          <!--End of Buttons-->
+        </form>
+        <!--End of Form-->
+      </mat-card-content>
+    </mat-card>
+    <!--Angular Material Card Ends-->
+  </div>
+  <br>
+</div>
